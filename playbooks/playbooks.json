@@ -1,0 +1,875 @@
+{
+  "type": "workflow_collections",
+  "data": [
+    {
+      "@type": "WorkflowCollection",
+      "name": "Sample - CTM360 CyberBlindspot - 1.0.0",
+      "description": null,
+      "visible": true,
+      "image": null,
+      "uuid": "b5ba91cc-645b-4678-9ce9-9404d57a0ebd",
+      "id": 30,
+      "deletedAt": null,
+      "importedBy": [],
+      "recordTags": [],
+      "workflows": [
+        {
+          "@type": "Workflow",
+          "triggerLimit": null,
+          "name": "Add Comment",
+          "aliasName": null,
+          "tag": null,
+          "description": null,
+          "isActive": true,
+          "debug": false,
+          "singleRecordExecution": false,
+          "remoteExecutableFlag": false,
+          "parameters": [],
+          "synchronous": false,
+          "lastModifyDate": 1755845328,
+          "collection": "/api/3/workflow_collections/b5ba91cc-645b-4678-9ce9-9404d57a0ebd",
+          "versions": [],
+          "triggerStep": "/api/3/workflow_steps/6b8523a0-d13e-456f-baab-9c869c0e7baf",
+          "steps": [
+            {
+              "@type": "WorkflowStep",
+              "name": "Add Comment",
+              "description": null,
+              "arguments": {
+                "name": "CTM360 CyberBlindspot",
+                "config": "c5d1d5d8-3b76-408d-922f-06dbdf89db69",
+                "params": {
+                  "comment": "{{}}",
+                  "ticket_id": "{{}}"
+                },
+                "version": "1.0.0",
+                "connector": "ctm360-cyberblindspot",
+                "operation": "add_comment",
+                "operationTitle": "Add Comment",
+                "pickFromTenant": false,
+                "step_variables": []
+              },
+              "status": null,
+              "top": "20",
+              "left": "440",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
+              "group": null,
+              "uuid": "911bf1e3-b425-45be-9eb0-3e1af3ff692b"
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "arguments": {
+                "route": "3211f3ce-84a2-425c-9d7a-f5ef5a327e56",
+                "resources": [
+                  "alerts",
+                  "incidents"
+                ],
+                "__triggerLimit": true,
+                "inputVariables": [],
+                "step_variables": {
+                  "input": {
+                    "params": [],
+                    "records": "{{vars.input.records}}"
+                  }
+                },
+                "triggerOnSource": true,
+                "executeButtonText": "Execute",
+                "noRecordExecution": true,
+                "showToasterMessage": {
+                  "visible": false,
+                  "messageVisible": true
+                },
+                "triggerOnReplicate": false,
+                "singleRecordExecution": false
+              },
+              "status": null,
+              "top": "30",
+              "left": "125",
+              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a",
+              "group": null,
+              "uuid": "6b8523a0-d13e-456f-baab-9c869c0e7baf"
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "name": "Start -> Request Takedown",
+              "targetStep": "/api/3/workflow_steps/911bf1e3-b425-45be-9eb0-3e1af3ff692b",
+              "sourceStep": "/api/3/workflow_steps/6b8523a0-d13e-456f-baab-9c869c0e7baf",
+              "label": null,
+              "isExecuted": false,
+              "group": null,
+              "uuid": "a27f7b56-f43b-4e22-8bc9-3b941e0dcb60"
+            }
+          ],
+          "groups": [],
+          "priority": "/api/3/picklists/2b563c61-ae2c-41c0-a85a-c9709585e3f2",
+          "playbookOrigin": "/api/3/picklists/15c1e8c9-22bf-4e66-8fbb-0a502d4a4a3f",
+          "isEditable": true,
+          "uuid": "0eabc1d3-6364-4eef-aed1-3db542cdeaff",
+          "id": 311,
+          "owners": [],
+          "isPrivate": false,
+          "deletedAt": null,
+          "importedBy": [],
+          "recordTags": []
+        },
+        {
+          "@type": "Workflow",
+          "triggerLimit": null,
+          "name": "Get Domain Protection",
+          "aliasName": null,
+          "tag": null,
+          "description": null,
+          "isActive": true,
+          "debug": false,
+          "singleRecordExecution": false,
+          "remoteExecutableFlag": false,
+          "parameters": [],
+          "synchronous": false,
+          "lastModifyDate": 1755845513,
+          "collection": "/api/3/workflow_collections/b5ba91cc-645b-4678-9ce9-9404d57a0ebd",
+          "versions": [],
+          "triggerStep": "/api/3/workflow_steps/837e79d7-e74f-41ae-84a5-0e99bb6d646c",
+          "steps": [
+            {
+              "@type": "WorkflowStep",
+              "name": "Get Domain Protection",
+              "description": null,
+              "arguments": {
+                "name": "CTM360 CyberBlindspot",
+                "config": "c5d1d5d8-3b76-408d-922f-06dbdf89db69",
+                "params": {
+                  "size": 5000,
+                  "type": "domain_infringement",
+                  "date_to": "01-01-2023 00:00",
+                  "date_from": "01-01-2021 00:00",
+                  "finding_status": "",
+                  "risk_score_max": "",
+                  "risk_score_min": ""
+                },
+                "version": "1.0.0",
+                "connector": "ctm360-cyberblindspot",
+                "operation": "get_domain_protection",
+                "operationTitle": "Get Domain Protection",
+                "pickFromTenant": false,
+                "step_variables": []
+              },
+              "status": null,
+              "top": "30",
+              "left": "450",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
+              "group": null,
+              "uuid": "7a3c3b84-15ee-4835-b8ca-35ddb5d6326f"
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "arguments": {
+                "route": "f9beb516-866a-4f4b-9b47-a3ab57c9298a",
+                "resources": [
+                  "alerts",
+                  "incidents"
+                ],
+                "__triggerLimit": true,
+                "inputVariables": [],
+                "step_variables": {
+                  "input": {
+                    "params": [],
+                    "records": "{{vars.input.records}}"
+                  }
+                },
+                "triggerOnSource": true,
+                "executeButtonText": "Execute",
+                "noRecordExecution": true,
+                "showToasterMessage": {
+                  "visible": false,
+                  "messageVisible": true
+                },
+                "triggerOnReplicate": false,
+                "singleRecordExecution": false
+              },
+              "status": null,
+              "top": "30",
+              "left": "125",
+              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a",
+              "group": null,
+              "uuid": "837e79d7-e74f-41ae-84a5-0e99bb6d646c"
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "name": "Start -> Request Takedown",
+              "targetStep": "/api/3/workflow_steps/7a3c3b84-15ee-4835-b8ca-35ddb5d6326f",
+              "sourceStep": "/api/3/workflow_steps/837e79d7-e74f-41ae-84a5-0e99bb6d646c",
+              "label": null,
+              "isExecuted": false,
+              "group": null,
+              "uuid": "e5e38f01-a5d8-4a24-b47f-ac5e0ec4f4eb"
+            }
+          ],
+          "groups": [],
+          "priority": "/api/3/picklists/2b563c61-ae2c-41c0-a85a-c9709585e3f2",
+          "playbookOrigin": "/api/3/picklists/15c1e8c9-22bf-4e66-8fbb-0a502d4a4a3f",
+          "isEditable": true,
+          "uuid": "17fd0adb-bd26-4923-ace9-48f33a3a6730",
+          "id": 315,
+          "owners": [],
+          "isPrivate": false,
+          "deletedAt": null,
+          "importedBy": [],
+          "recordTags": []
+        },
+        {
+          "@type": "Workflow",
+          "triggerLimit": null,
+          "name": "Get Incidents",
+          "aliasName": null,
+          "tag": null,
+          "description": null,
+          "isActive": true,
+          "debug": false,
+          "singleRecordExecution": false,
+          "remoteExecutableFlag": false,
+          "parameters": [],
+          "synchronous": false,
+          "lastModifyDate": 1755845035,
+          "collection": "/api/3/workflow_collections/b5ba91cc-645b-4678-9ce9-9404d57a0ebd",
+          "versions": [],
+          "triggerStep": "/api/3/workflow_steps/97d6a282-b89c-4a6a-9dcc-3e442b7aa3f6",
+          "steps": [
+            {
+              "@type": "WorkflowStep",
+              "name": "Get Incidents",
+              "description": null,
+              "arguments": {
+                "name": "CTM360 Cyber Blindspot",
+                "config": "c5d1d5d8-3b76-408d-922f-06dbdf89db69",
+                "params": {
+                  "dateTo": "",
+                  "dateFrom": "",
+                  "date_field": "created_date"
+                },
+                "version": "1.0.0",
+                "connector": "ctm360-cyberblindspot",
+                "operation": "get_incidents",
+                "operationTitle": "Get Incidents",
+                "pickFromTenant": false,
+                "step_variables": []
+              },
+              "status": null,
+              "top": "165",
+              "left": "125",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
+              "group": null,
+              "uuid": "84173dde-001b-4d26-ba5d-131d8d4d949c"
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "arguments": {
+                "route": "2bbc7bf4-c665-40eb-97e1-84bfe6550469",
+                "resources": [
+                  "alerts",
+                  "incidents"
+                ],
+                "__triggerLimit": true,
+                "inputVariables": [],
+                "step_variables": {
+                  "input": {
+                    "params": [],
+                    "records": "{{vars.input.records}}"
+                  }
+                },
+                "triggerOnSource": true,
+                "executeButtonText": "Execute",
+                "noRecordExecution": true,
+                "showToasterMessage": {
+                  "visible": false,
+                  "messageVisible": true
+                },
+                "triggerOnReplicate": false,
+                "singleRecordExecution": false
+              },
+              "status": null,
+              "top": "30",
+              "left": "125",
+              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a",
+              "group": null,
+              "uuid": "97d6a282-b89c-4a6a-9dcc-3e442b7aa3f6"
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "name": "Start -> Get Incidents",
+              "targetStep": "/api/3/workflow_steps/84173dde-001b-4d26-ba5d-131d8d4d949c",
+              "sourceStep": "/api/3/workflow_steps/97d6a282-b89c-4a6a-9dcc-3e442b7aa3f6",
+              "label": null,
+              "isExecuted": false,
+              "group": null,
+              "uuid": "38630cab-654f-44f1-9a74-399fc6ee303c"
+            }
+          ],
+          "groups": [],
+          "priority": "/api/3/picklists/2b563c61-ae2c-41c0-a85a-c9709585e3f2",
+          "playbookOrigin": "/api/3/picklists/15c1e8c9-22bf-4e66-8fbb-0a502d4a4a3f",
+          "isEditable": true,
+          "uuid": "3baecb4b-d144-4c3b-8a6b-9a7281527dd6",
+          "id": 308,
+          "owners": [],
+          "isPrivate": false,
+          "deletedAt": null,
+          "importedBy": [],
+          "recordTags": []
+        },
+        {
+          "@type": "Workflow",
+          "triggerLimit": null,
+          "name": "Get Breached Credentials",
+          "aliasName": null,
+          "tag": null,
+          "description": null,
+          "isActive": true,
+          "debug": false,
+          "singleRecordExecution": false,
+          "remoteExecutableFlag": false,
+          "parameters": [],
+          "synchronous": false,
+          "lastModifyDate": 1755845458,
+          "collection": "/api/3/workflow_collections/b5ba91cc-645b-4678-9ce9-9404d57a0ebd",
+          "versions": [],
+          "triggerStep": "/api/3/workflow_steps/cc2cc4a8-906c-436c-a75d-6f66ebc06ab0",
+          "steps": [
+            {
+              "@type": "WorkflowStep",
+              "name": "Get Breached Credentials",
+              "description": null,
+              "arguments": {
+                "name": "CTM360 CyberBlindspot",
+                "config": "c5d1d5d8-3b76-408d-922f-06dbdf89db69",
+                "params": {
+                  "size": 5000,
+                  "date_to": "01-01-2023 00:00",
+                  "date_from": "01-01-2021 00:00"
+                },
+                "version": "1.0.0",
+                "connector": "ctm360-cyberblindspot",
+                "operation": "get_breached_credentials",
+                "operationTitle": "Get Breached Credentials",
+                "pickFromTenant": false,
+                "step_variables": []
+              },
+              "status": null,
+              "top": "30",
+              "left": "450",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
+              "group": null,
+              "uuid": "35685fe5-f669-469f-96b8-d902f2bb5364"
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "arguments": {
+                "route": "72bc4038-07d8-4b03-a1b8-8f75298f9769",
+                "resources": [
+                  "alerts",
+                  "incidents"
+                ],
+                "__triggerLimit": true,
+                "inputVariables": [],
+                "step_variables": {
+                  "input": {
+                    "params": [],
+                    "records": "{{vars.input.records}}"
+                  }
+                },
+                "triggerOnSource": true,
+                "executeButtonText": "Execute",
+                "noRecordExecution": true,
+                "showToasterMessage": {
+                  "visible": false,
+                  "messageVisible": true
+                },
+                "triggerOnReplicate": false,
+                "singleRecordExecution": false
+              },
+              "status": null,
+              "top": "30",
+              "left": "125",
+              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a",
+              "group": null,
+              "uuid": "cc2cc4a8-906c-436c-a75d-6f66ebc06ab0"
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "name": "Start -> Request Takedown",
+              "targetStep": "/api/3/workflow_steps/35685fe5-f669-469f-96b8-d902f2bb5364",
+              "sourceStep": "/api/3/workflow_steps/cc2cc4a8-906c-436c-a75d-6f66ebc06ab0",
+              "label": null,
+              "isExecuted": false,
+              "group": null,
+              "uuid": "678eb9ce-fa10-40b3-a46f-3929ed8be29e"
+            }
+          ],
+          "groups": [],
+          "priority": "/api/3/picklists/2b563c61-ae2c-41c0-a85a-c9709585e3f2",
+          "playbookOrigin": "/api/3/picklists/15c1e8c9-22bf-4e66-8fbb-0a502d4a4a3f",
+          "isEditable": true,
+          "uuid": "6195bba8-4e57-4743-a571-9069153c6aee",
+          "id": 313,
+          "owners": [],
+          "isPrivate": false,
+          "deletedAt": null,
+          "importedBy": [],
+          "recordTags": []
+        },
+        {
+          "@type": "Workflow",
+          "triggerLimit": null,
+          "name": "Request Takedown",
+          "aliasName": null,
+          "tag": null,
+          "description": null,
+          "isActive": true,
+          "debug": false,
+          "singleRecordExecution": false,
+          "remoteExecutableFlag": false,
+          "parameters": [],
+          "synchronous": false,
+          "lastModifyDate": 1755845268,
+          "collection": "/api/3/workflow_collections/b5ba91cc-645b-4678-9ce9-9404d57a0ebd",
+          "versions": [],
+          "triggerStep": "/api/3/workflow_steps/a92466e6-c9d3-42ed-a91a-e3a1730d00de",
+          "steps": [
+            {
+              "@type": "WorkflowStep",
+              "name": "Request Takedown",
+              "description": null,
+              "arguments": {
+                "name": "CTM360 CyberBlindspot",
+                "config": "c5d1d5d8-3b76-408d-922f-06dbdf89db69",
+                "params": {
+                  "ticket_id": "{{}}"
+                },
+                "version": "1.0.0",
+                "connector": "ctm360-cyberblindspot",
+                "operation": "request_takedown",
+                "operationTitle": "Request Takedown",
+                "pickFromTenant": false,
+                "step_variables": []
+              },
+              "status": null,
+              "top": "30",
+              "left": "450",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
+              "group": null,
+              "uuid": "af8ae581-5cfd-4777-9a15-08aee8cdb324"
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "arguments": {
+                "route": "ab8895e5-ada5-4e90-9bf4-96734de88989",
+                "resources": [
+                  "alerts",
+                  "incidents"
+                ],
+                "__triggerLimit": true,
+                "inputVariables": [],
+                "step_variables": {
+                  "input": {
+                    "params": [],
+                    "records": "{{vars.input.records}}"
+                  }
+                },
+                "triggerOnSource": true,
+                "executeButtonText": "Execute",
+                "noRecordExecution": true,
+                "showToasterMessage": {
+                  "visible": false,
+                  "messageVisible": true
+                },
+                "triggerOnReplicate": false,
+                "singleRecordExecution": false
+              },
+              "status": null,
+              "top": "30",
+              "left": "125",
+              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a",
+              "group": null,
+              "uuid": "a92466e6-c9d3-42ed-a91a-e3a1730d00de"
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "name": "Start -> Request Takedown",
+              "targetStep": "/api/3/workflow_steps/af8ae581-5cfd-4777-9a15-08aee8cdb324",
+              "sourceStep": "/api/3/workflow_steps/a92466e6-c9d3-42ed-a91a-e3a1730d00de",
+              "label": null,
+              "isExecuted": false,
+              "group": null,
+              "uuid": "1d01d021-918c-4401-b445-2d983bba2947"
+            }
+          ],
+          "groups": [],
+          "priority": "/api/3/picklists/2b563c61-ae2c-41c0-a85a-c9709585e3f2",
+          "playbookOrigin": "/api/3/picklists/15c1e8c9-22bf-4e66-8fbb-0a502d4a4a3f",
+          "isEditable": true,
+          "uuid": "9786ac5f-7985-4bdc-9325-965d21b905f1",
+          "id": 310,
+          "owners": [],
+          "isPrivate": false,
+          "deletedAt": null,
+          "importedBy": [],
+          "recordTags": []
+        },
+        {
+          "@type": "Workflow",
+          "triggerLimit": null,
+          "name": "Get Malware Logs",
+          "aliasName": null,
+          "tag": null,
+          "description": null,
+          "isActive": true,
+          "debug": false,
+          "singleRecordExecution": false,
+          "remoteExecutableFlag": false,
+          "parameters": [],
+          "synchronous": false,
+          "lastModifyDate": 1755845379,
+          "collection": "/api/3/workflow_collections/b5ba91cc-645b-4678-9ce9-9404d57a0ebd",
+          "versions": [],
+          "triggerStep": "/api/3/workflow_steps/2034f688-ba9e-42ca-8fc3-87ab696bd515",
+          "steps": [
+            {
+              "@type": "WorkflowStep",
+              "name": "Get Malware Logs",
+              "description": null,
+              "arguments": {
+                "name": "CTM360 CyberBlindspot",
+                "config": "c5d1d5d8-3b76-408d-922f-06dbdf89db69",
+                "params": {
+                  "size": 5000,
+                  "date_to": "01-01-2023 00:00",
+                  "date_from": "01-01-2021 00:00"
+                },
+                "version": "1.0.0",
+                "connector": "ctm360-cyberblindspot",
+                "operation": "get_malware_logs",
+                "operationTitle": "Get Malware Logs",
+                "pickFromTenant": false,
+                "step_variables": []
+              },
+              "status": null,
+              "top": "30",
+              "left": "450",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
+              "group": null,
+              "uuid": "2e1a9994-ff0b-458d-bfa6-8f966acb6208"
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "arguments": {
+                "route": "e32ee342-53ad-4476-bc37-51c284b93273",
+                "resources": [
+                  "alerts",
+                  "incidents"
+                ],
+                "__triggerLimit": true,
+                "inputVariables": [],
+                "step_variables": {
+                  "input": {
+                    "params": [],
+                    "records": "{{vars.input.records}}"
+                  }
+                },
+                "triggerOnSource": true,
+                "executeButtonText": "Execute",
+                "noRecordExecution": true,
+                "showToasterMessage": {
+                  "visible": false,
+                  "messageVisible": true
+                },
+                "triggerOnReplicate": false,
+                "singleRecordExecution": false
+              },
+              "status": null,
+              "top": "30",
+              "left": "125",
+              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a",
+              "group": null,
+              "uuid": "2034f688-ba9e-42ca-8fc3-87ab696bd515"
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "name": "Start -> Request Takedown",
+              "targetStep": "/api/3/workflow_steps/2e1a9994-ff0b-458d-bfa6-8f966acb6208",
+              "sourceStep": "/api/3/workflow_steps/2034f688-ba9e-42ca-8fc3-87ab696bd515",
+              "label": null,
+              "isExecuted": false,
+              "group": null,
+              "uuid": "faa3a1ea-e4bc-457e-bdd6-a334bc198744"
+            }
+          ],
+          "groups": [],
+          "priority": "/api/3/picklists/2b563c61-ae2c-41c0-a85a-c9709585e3f2",
+          "playbookOrigin": "/api/3/picklists/15c1e8c9-22bf-4e66-8fbb-0a502d4a4a3f",
+          "isEditable": true,
+          "uuid": "9df74321-515e-49c7-b832-39eba03e9f6c",
+          "id": 312,
+          "owners": [],
+          "isPrivate": false,
+          "deletedAt": null,
+          "importedBy": [],
+          "recordTags": []
+        },
+        {
+          "@type": "Workflow",
+          "triggerLimit": null,
+          "name": "Get Card Leaks",
+          "aliasName": null,
+          "tag": null,
+          "description": null,
+          "isActive": true,
+          "debug": false,
+          "singleRecordExecution": false,
+          "remoteExecutableFlag": false,
+          "parameters": [],
+          "synchronous": false,
+          "lastModifyDate": 1755845479,
+          "collection": "/api/3/workflow_collections/b5ba91cc-645b-4678-9ce9-9404d57a0ebd",
+          "versions": [],
+          "triggerStep": "/api/3/workflow_steps/daab2cdb-eda5-4eca-bec3-50a0a490e5f0",
+          "steps": [
+            {
+              "@type": "WorkflowStep",
+              "name": "Get Card Leaks",
+              "description": null,
+              "arguments": {
+                "name": "CTM360 CyberBlindspot",
+                "config": "c5d1d5d8-3b76-408d-922f-06dbdf89db69",
+                "params": {
+                  "size": 5000,
+                  "date_to": "01-01-2023 00:00",
+                  "date_from": "01-01-2021 00:00"
+                },
+                "version": "1.0.0",
+                "connector": "ctm360-cyberblindspot",
+                "operation": "get_card_leaks",
+                "operationTitle": "Get Card Leaks",
+                "pickFromTenant": false,
+                "step_variables": []
+              },
+              "status": null,
+              "top": "30",
+              "left": "450",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
+              "group": null,
+              "uuid": "810b5963-ae9f-4566-9c8b-de43749aa486"
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "arguments": {
+                "route": "f529aae2-f4e5-47a5-ab19-7cffe26e5b51",
+                "resources": [
+                  "alerts",
+                  "incidents"
+                ],
+                "__triggerLimit": true,
+                "inputVariables": [],
+                "step_variables": {
+                  "input": {
+                    "params": [],
+                    "records": "{{vars.input.records}}"
+                  }
+                },
+                "triggerOnSource": true,
+                "executeButtonText": "Execute",
+                "noRecordExecution": true,
+                "showToasterMessage": {
+                  "visible": false,
+                  "messageVisible": true
+                },
+                "triggerOnReplicate": false,
+                "singleRecordExecution": false
+              },
+              "status": null,
+              "top": "30",
+              "left": "125",
+              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a",
+              "group": null,
+              "uuid": "daab2cdb-eda5-4eca-bec3-50a0a490e5f0"
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "name": "Start -> Request Takedown",
+              "targetStep": "/api/3/workflow_steps/810b5963-ae9f-4566-9c8b-de43749aa486",
+              "sourceStep": "/api/3/workflow_steps/daab2cdb-eda5-4eca-bec3-50a0a490e5f0",
+              "label": null,
+              "isExecuted": false,
+              "group": null,
+              "uuid": "265e1069-087a-45c8-aea0-5689e54ba9bc"
+            }
+          ],
+          "groups": [],
+          "priority": "/api/3/picklists/2b563c61-ae2c-41c0-a85a-c9709585e3f2",
+          "playbookOrigin": "/api/3/picklists/15c1e8c9-22bf-4e66-8fbb-0a502d4a4a3f",
+          "isEditable": true,
+          "uuid": "f1b8ffd1-722a-4068-a739-d41b1e34dcf1",
+          "id": 314,
+          "owners": [],
+          "isPrivate": false,
+          "deletedAt": null,
+          "importedBy": [],
+          "recordTags": []
+        },
+        {
+          "@type": "Workflow",
+          "triggerLimit": null,
+          "name": "Close Incident",
+          "aliasName": null,
+          "tag": null,
+          "description": null,
+          "isActive": true,
+          "debug": false,
+          "singleRecordExecution": false,
+          "remoteExecutableFlag": false,
+          "parameters": [],
+          "synchronous": false,
+          "lastModifyDate": 1755845142,
+          "collection": "/api/3/workflow_collections/b5ba91cc-645b-4678-9ce9-9404d57a0ebd",
+          "versions": [],
+          "triggerStep": "/api/3/workflow_steps/1796c150-1e71-4649-afd5-a5e31d8dab10",
+          "steps": [
+            {
+              "@type": "WorkflowStep",
+              "name": "Close Incident",
+              "description": null,
+              "arguments": {
+                "name": "CTM360 CyberBlindspot",
+                "config": "c5d1d5d8-3b76-408d-922f-06dbdf89db69",
+                "params": {
+                  "ticket_id": "{{vars.ticketID}}"
+                },
+                "version": "1.0.0",
+                "connector": "ctm360-cyberblindspot",
+                "operation": "close_incident",
+                "operationTitle": "Close Incident",
+                "pickFromTenant": false,
+                "step_variables": []
+              },
+              "status": null,
+              "top": "30",
+              "left": "775",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
+              "group": null,
+              "uuid": "60f1db0e-1d4d-4762-b4dd-40c359ea2cf1"
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Configuration",
+              "description": null,
+              "arguments": {
+                "ticketID": ""
+              },
+              "status": null,
+              "top": "30",
+              "left": "450",
+              "stepType": "/api/3/workflow_step_types/04d0cf46-b6a8-42c4-8683-60a7eaa69e8f",
+              "group": null,
+              "uuid": "990829a7-184b-450e-a2f6-64b3129934d3"
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "arguments": {
+                "route": "2896ac36-28d4-4e75-9f90-74fd422d0948",
+                "resources": [
+                  "alerts",
+                  "incidents"
+                ],
+                "__triggerLimit": true,
+                "inputVariables": [],
+                "step_variables": {
+                  "input": {
+                    "params": [],
+                    "records": "{{vars.input.records}}"
+                  }
+                },
+                "triggerOnSource": true,
+                "executeButtonText": "Execute",
+                "noRecordExecution": true,
+                "showToasterMessage": {
+                  "visible": false,
+                  "messageVisible": true
+                },
+                "triggerOnReplicate": false,
+                "singleRecordExecution": false
+              },
+              "status": null,
+              "top": "30",
+              "left": "125",
+              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a",
+              "group": null,
+              "uuid": "1796c150-1e71-4649-afd5-a5e31d8dab10"
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "name": "Configuration -> Close Incident",
+              "targetStep": "/api/3/workflow_steps/60f1db0e-1d4d-4762-b4dd-40c359ea2cf1",
+              "sourceStep": "/api/3/workflow_steps/990829a7-184b-450e-a2f6-64b3129934d3",
+              "label": null,
+              "isExecuted": false,
+              "group": null,
+              "uuid": "1900e953-2fce-4942-874e-bcd8ab7c563f"
+            },
+            {
+              "@type": "WorkflowRoute",
+              "name": "Start -> Configuration",
+              "targetStep": "/api/3/workflow_steps/990829a7-184b-450e-a2f6-64b3129934d3",
+              "sourceStep": "/api/3/workflow_steps/1796c150-1e71-4649-afd5-a5e31d8dab10",
+              "label": null,
+              "isExecuted": false,
+              "group": null,
+              "uuid": "3a887ea4-0e13-452c-99d3-de07618ff451"
+            }
+          ],
+          "groups": [],
+          "priority": "/api/3/picklists/2b563c61-ae2c-41c0-a85a-c9709585e3f2",
+          "playbookOrigin": "/api/3/picklists/15c1e8c9-22bf-4e66-8fbb-0a502d4a4a3f",
+          "isEditable": true,
+          "uuid": "f7968fee-b493-47a7-9324-c96cae11d5e6",
+          "id": 309,
+          "owners": [],
+          "isPrivate": false,
+          "deletedAt": null,
+          "importedBy": [],
+          "recordTags": []
+        }
+      ]
+    }
+  ],
+  "exported_tags": []
+}

@@ -1,11 +1,13 @@
-""" Copyright start
-  Copyright (C) 2008 - 2023 Fortinet Inc.
-  All rights reserved.
-  FORTINET CONFIDENTIAL & FORTINET PROPRIETARY SOURCE CODE
-  Copyright end """
+"""
+Copyright start
+MIT License
+Copyright (c) 2025 Fortinet Inc
+Copyright end
+"""
 
 import requests
 from connectors.core.connector import get_logger, ConnectorError
+from .constants import *
 
 logger = get_logger('ctm360-cyberblindspot')
 
@@ -81,8 +83,7 @@ def get_boolean_string(value):
 
 
 def filter_params(params):
-    filtered_params = {k: v for k,
-                       v in params.items() if v is not None and v != ''}
+    filtered_params = {k: v for k, v in params.items() if v is not None and v != ''}
     return filtered_params
 
 
@@ -92,13 +93,13 @@ def get_incidents(config, params):
     method = 'GET'
     request_params = {}
     query_params = {
-        'date_field': params.get('date_field'),
+        'date_field': DATA_FIELD.get(params.get('date_field')) if params.get('date_field') else '',
         'date_to': params.get('date_to'),
         'date_from': params.get('date_from')
     }
     query_params = filter_params(query_params)
-    response = ctm.make_rest_call(
-        endpoint=endpoint, method=method, query_params=query_params, req_params=request_params)
+    response = ctm.make_rest_call(endpoint=endpoint, method=method, query_params=query_params,
+                                  req_params=request_params)
     return response
 
 
@@ -111,8 +112,8 @@ def close_incident(config, params):
     }
     request_params = filter_params(request_params)
     query_params = {}
-    response = ctm.make_rest_call(
-        endpoint=endpoint, method=method, query_params=query_params, req_params=request_params)
+    response = ctm.make_rest_call(endpoint=endpoint, method=method, query_params=query_params,
+                                  req_params=request_params)
     return response
 
 
@@ -125,8 +126,8 @@ def request_takedown(config, params):
     }
     request_params = filter_params(request_params)
     query_params = {}
-    response = ctm.make_rest_call(
-        endpoint=endpoint, method=method, query_params=query_params, req_params=request_params)
+    response = ctm.make_rest_call(endpoint=endpoint, method=method, query_params=query_params,
+                                  req_params=request_params)
     return response
 
 
@@ -140,8 +141,8 @@ def add_comment(config, params):
     }
     request_params = filter_params(request_params)
     query_params = {}
-    response = ctm.make_rest_call(
-        endpoint=endpoint, method=method, query_params=query_params, req_params=request_params)
+    response = ctm.make_rest_call(endpoint=endpoint, method=method, query_params=query_params,
+                                  req_params=request_params)
     return response
 
 
@@ -156,8 +157,8 @@ def get_malware_logs(config, params):
         'size': params.get('size')
     }
     query_params = filter_params(query_params)
-    response = ctm.make_rest_call(
-        endpoint=endpoint, method=method, query_params=query_params, req_params=request_params)
+    response = ctm.make_rest_call(endpoint=endpoint, method=method, query_params=query_params,
+                                  req_params=request_params)
     return response
 
 
@@ -172,8 +173,8 @@ def get_breached_credentials(config, params):
         'size': params.get('size')
     }
     query_params = filter_params(query_params)
-    response = ctm.make_rest_call(
-        endpoint=endpoint, method=method, query_params=query_params, req_params=request_params)
+    response = ctm.make_rest_call(endpoint=endpoint, method=method, query_params=query_params,
+                                  req_params=request_params)
     return response
 
 
@@ -188,8 +189,8 @@ def get_card_leaks(config, params):
         'size': params.get('size')
     }
     query_params = filter_params(query_params)
-    response = ctm.make_rest_call(
-        endpoint=endpoint, method=method, query_params=query_params, req_params=request_params)
+    response = ctm.make_rest_call(endpoint=endpoint, method=method, query_params=query_params,
+                                  req_params=request_params)
     return response
 
 
@@ -208,9 +209,9 @@ def get_domain_protection(config, params):
         'type': params.get('type')
     }
     query_params = filter_params(query_params)
-    
-    response = ctm.make_rest_call(
-        endpoint=endpoint, method=method, query_params=query_params, req_params=request_params)
+
+    response = ctm.make_rest_call(endpoint=endpoint, method=method, query_params=query_params,
+                                  req_params=request_params)
     return response
 
 

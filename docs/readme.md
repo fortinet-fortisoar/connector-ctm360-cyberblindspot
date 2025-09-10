@@ -8,6 +8,8 @@ Connector Version: 1.0.0
 
 Publisher: Fortinet SE
 
+Contributor: Reem Moustafa
+
 Certified: No
 
 ## Installing the connector

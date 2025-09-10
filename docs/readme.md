@@ -6,9 +6,10 @@ CyberBlindspot is CTM360's Digital Risk Protection platform which combines surfa
 
 Connector Version: 1.0.0
 
-Authored By: Fortinet
+Publisher: Fortinet SE
 
 Certified: No
+
 ## Installing the connector
 <p>From FortiSOAR&trade; 6.3.4 onwards, use the <strong>Connector Store</strong> to install the connector. For the detailed procedure to install a connector, click <a href="https://docs.fortinet.com/document/fortisoar/0.0.0/installing-a-connector/1/installing-a-connector" target="_top">here</a>.<br>You can also use the following <code>yum</code> command as a root user to install connectors from an SSH session:</p>
 `yum install cyops-connector-ctm360-cyberblindspot`

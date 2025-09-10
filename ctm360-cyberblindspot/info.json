@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "label": "CTM360 CyberBlindspot",
   "description": "CyberBlindspot is CTM360's Digital Risk Protection platform which combines surface, deep, and dark web monitoring, including brand protection, anti-phishing, and takedowns. This connector allows you to ingest the details from the platform and take response actions.",
-  "publisher": "Fortinet",
+  "publisher": "Fortinet SE",
   "icon_small_name": "small.png",
   "icon_large_name": "large.png",
   "category": "Threat Intelligence",

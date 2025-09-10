@@ -78,7 +78,7 @@
           "visible": true,
           "editable": true,
           "tooltip": "(Optional) Specify the date and time to retrieve results that include only those items that were created/updated after the specified timestamp. The date must be in the format DD-MM-YYYY hh:mm, for example: \"01-01-2025 00:00\".",
-          "placeholder": "The date must be in the format DD-MM-YYYY hh:mm, for example: \"01-01-2025 00:00\"."
+          "placeholder": "Format DD-MM-YYYY hh:mm, for example: \"01-01-2025 00:00\"."
         },
         {
           "title": "Date To",
@@ -89,7 +89,7 @@
           "visible": true,
           "editable": true,
           "tooltip": "(Optional) Specify the date and time to retrieve results that include only those items that were created/updated before the specified timestamp. The date must be in the format DD-MM-YYYY hh:mm, for example: \"01-01-2025 00:00\".",
-          "placeholder": "The date must be in the format DD-MM-YYYY hh:mm, for example: \"01-01-2025 00:00\"."
+          "placeholder": "Format DD-MM-YYYY hh:mm, for example: \"01-01-2025 00:00\"."
         }
       ],
       "output_schema": {}
@@ -185,7 +185,7 @@
           "visible": true,
           "editable": true,
           "tooltip": "Specify the date and time to retrieve results that include only those items that were created after the specified timestamp. The date must be in the format DD-MM-YYYY hh:mm, for example: \"01-01-2025 00:00\".",
-          "placeholder": "The date must be in the format DD-MM-YYYY hh:mm, for example: \"01-01-2025 00:00\"."
+          "placeholder": "Format DD-MM-YYYY hh:mm, for example: \"01-01-2025 00:00\"."
         },
         {
           "title": "Date To",
@@ -196,7 +196,7 @@
           "visible": true,
           "editable": true,
           "tooltip": "Specify the date and time to retrieve results that include only those items that were created before the specified timestamp. The date must be in the format DD-MM-YYYY hh:mm, for example: \"01-01-2025 00:00\".",
-          "placeholder": "The date must be in the format DD-MM-YYYY hh:mm, for example: \"01-01-2025 00:00\"."
+          "placeholder": "Format DD-MM-YYYY hh:mm, for example: \"01-01-2025 00:00\"."
         },
         {
           "title": "Page Size",
@@ -230,7 +230,7 @@
           "visible": true,
           "editable": true,
           "tooltip": "Specify the date and time to retrieve results that include only those items that were created after the specified timestamp. The date must be in the format DD-MM-YYYY hh:mm, for example: \"01-01-2025 00:00\".",
-          "placeholder": "The date must be in the format DD-MM-YYYY hh:mm, for example: \"01-01-2025 00:00\"."
+          "placeholder": "Format DD-MM-YYYY hh:mm, for example: \"01-01-2025 00:00\"."
         },
         {
           "title": "Date To",
@@ -241,7 +241,7 @@
           "visible": true,
           "editable": true,
           "tooltip": "Specify the date and time to retrieve results that include only those items that were created before the specified timestamp. The date must be in the format DD-MM-YYYY hh:mm, for example: \"01-01-2025 00:00\".",
-          "placeholder": "The date must be in the format DD-MM-YYYY hh:mm, for example: \"01-01-2025 00:00\"."
+          "placeholder": "Format DD-MM-YYYY hh:mm, for example: \"01-01-2025 00:00\"."
         },
         {
           "title": "Page Size",
@@ -275,7 +275,7 @@
           "visible": true,
           "editable": true,
           "tooltip": "Specify the date and time to retrieve results that include only those items that were created after the specified timestamp. The date must be in the format DD-MM-YYYY hh:mm, for example: \"01-01-2025 00:00\".",
-          "placeholder": "The date must be in the format DD-MM-YYYY hh:mm, for example: \"01-01-2025 00:00\"."
+          "placeholder": "Format DD-MM-YYYY hh:mm, for example: \"01-01-2025 00:00\"."
         },
         {
           "title": "Date To",
@@ -286,7 +286,7 @@
           "visible": true,
           "editable": true,
           "tooltip": "Specify the date and time to retrieve results that include only those items that were created before the specified timestamp. The date must be in the format DD-MM-YYYY hh:mm, for example: \"01-01-2025 00:00\".",
-          "placeholder": "The date must be in the format DD-MM-YYYY hh:mm, for example: \"01-01-2025 00:00\"."
+          "placeholder": "Format DD-MM-YYYY hh:mm, for example: \"01-01-2025 00:00\"."
         },
         {
           "title": "Page Size",
@@ -320,7 +320,7 @@
           "visible": true,
           "editable": true,
           "tooltip": "Specify the date and time to retrieve results that include only those items that were created after the specified timestamp. The date must be in the format DD-MM-YYYY hh:mm, for example: \"01-01-2025 00:00\".",
-          "placeholder": "The date must be in the format DD-MM-YYYY hh:mm, for example: \"01-01-2025 00:00\"."
+          "placeholder": "Format DD-MM-YYYY hh:mm, for example: \"01-01-2025 00:00\"."
         },
         {
           "title": "Date To",
@@ -331,7 +331,7 @@
           "visible": true,
           "editable": true,
           "tooltip": "Specify the date and time to retrieve results that include only those items that were created before the specified timestamp. The date must be in the format DD-MM-YYYY hh:mm, for example: \"01-01-2025 00:00\".",
-          "placeholder": "The date must be in the format DD-MM-YYYY hh:mm, for example: \"01-01-2025 00:00\"."
+          "placeholder": "Format DD-MM-YYYY hh:mm, for example: \"01-01-2025 00:00\"."
         },
         {
           "title": "Incident Type",

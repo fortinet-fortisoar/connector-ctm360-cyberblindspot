@@ -1,0 +1,593 @@
+{
+  "type": "workflow_collections",
+  "data": [
+    {
+      "uuid": "ebcce43f-b73b-450f-a319-fa857d64f37f",
+      "@type": "WorkflowCollection",
+      "workflows": [
+        {
+          "@type": "Workflow",
+          "uuid": "8abac244-7c67-4615-bb8d-e15a021182cc",
+          "collection": "/api/3/workflow_collections/ebcce43f-b73b-450f-a319-fa857d64f37f",
+          "steps": [
+            {
+              "uuid": "4ff67ece-27a4-4099-b6b0-eb9d25c551e2",
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "step_variables": {
+                  "input": {
+                    "params": []
+                  }
+                }
+              },
+              "left": "20",
+              "top": "20",
+              "stepType": "/api/3/workflow_step_types/b348f017-9a94-471f-87f8-ce88b6a7ad62"
+            },
+            {
+              "uuid": "9d2962d9-5314-44dd-bbbd-c789e5d8125b",
+              "@type": "WorkflowStep",
+              "name": "Get Incidents",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "name": "CTM360 CyberBlindspot",
+                "config": "",
+                "params": {
+                  "date_field": "Created Date",
+                  "date_from": "",
+                  "date_to": ""
+                },
+                "version": "1.0.0",
+                "connector": "ctm360-cyberblindspot",
+                "operation": "get_incidents",
+                "operationTitle": "Get Incidents"
+              },
+              "left": "188",
+              "top": "120",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671"
+            }
+          ],
+          "triggerLimit": null,
+          "description": "Retrieves a list of incidents from CTM360 Blindspot based on the filter criteria that you have specified.",
+          "name": "Get Incidents",
+          "tag": "#CTM360 CyberBlindspot",
+          "recordTags": [
+            "Ctm360",
+            "ctm360-cyberblindspot"
+          ],
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "parameters": [],
+          "synchronous": false,
+          "triggerStep": "/api/3/workflow_steps/4ff67ece-27a4-4099-b6b0-eb9d25c551e2",
+          "routes": [
+            {
+              "uuid": "6254c0bb-0d01-47e7-a714-7bd59ba05f38",
+              "@type": "WorkflowRoute",
+              "label": null,
+              "isExecuted": false,
+              "name": "Start-> Get Incidents",
+              "sourceStep": "/api/3/workflow_steps/4ff67ece-27a4-4099-b6b0-eb9d25c551e2",
+              "targetStep": "/api/3/workflow_steps/9d2962d9-5314-44dd-bbbd-c789e5d8125b"
+            }
+          ]
+        },
+        {
+          "@type": "Workflow",
+          "uuid": "73b73bc8-45cc-4a1a-a823-f6600895d4a9",
+          "collection": "/api/3/workflow_collections/ebcce43f-b73b-450f-a319-fa857d64f37f",
+          "steps": [
+            {
+              "uuid": "f68937d3-6e8d-4e00-9fc7-3b99aaeb631f",
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "step_variables": {
+                  "input": {
+                    "params": []
+                  }
+                }
+              },
+              "left": "20",
+              "top": "20",
+              "stepType": "/api/3/workflow_step_types/b348f017-9a94-471f-87f8-ce88b6a7ad62"
+            },
+            {
+              "uuid": "7420a08b-5ea6-4daf-925f-816065113be3",
+              "@type": "WorkflowStep",
+              "name": "Close Incident",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "name": "CTM360 CyberBlindspot",
+                "config": "",
+                "params": {
+                  "ticket_id": ""
+                },
+                "version": "1.0.0",
+                "connector": "ctm360-cyberblindspot",
+                "operation": "close_incident",
+                "operationTitle": "Close Incident"
+              },
+              "left": "188",
+              "top": "120",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671"
+            }
+          ],
+          "triggerLimit": null,
+          "description": "Close a specific incident based on the ticket ID that you have specified.",
+          "name": "Close Incident",
+          "tag": "#CTM360 CyberBlindspot",
+          "recordTags": [
+            "Ctm360",
+            "ctm360-cyberblindspot"
+          ],
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "parameters": [],
+          "synchronous": false,
+          "triggerStep": "/api/3/workflow_steps/f68937d3-6e8d-4e00-9fc7-3b99aaeb631f",
+          "routes": [
+            {
+              "uuid": "c8188e38-e6d1-4855-8532-d02ce782cae8",
+              "@type": "WorkflowRoute",
+              "label": null,
+              "isExecuted": false,
+              "name": "Start-> Close Incident",
+              "sourceStep": "/api/3/workflow_steps/f68937d3-6e8d-4e00-9fc7-3b99aaeb631f",
+              "targetStep": "/api/3/workflow_steps/7420a08b-5ea6-4daf-925f-816065113be3"
+            }
+          ]
+        },
+        {
+          "@type": "Workflow",
+          "uuid": "bed48c79-913f-4700-9219-24cde9cd65d5",
+          "collection": "/api/3/workflow_collections/ebcce43f-b73b-450f-a319-fa857d64f37f",
+          "steps": [
+            {
+              "uuid": "d2106952-7e2f-42fb-83d4-0f7fbf084460",
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "step_variables": {
+                  "input": {
+                    "params": []
+                  }
+                }
+              },
+              "left": "20",
+              "top": "20",
+              "stepType": "/api/3/workflow_step_types/b348f017-9a94-471f-87f8-ce88b6a7ad62"
+            },
+            {
+              "uuid": "d9115e89-d545-4276-8dd4-525fe0c048e2",
+              "@type": "WorkflowStep",
+              "name": "Request Takedown",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "name": "CTM360 CyberBlindspot",
+                "config": "",
+                "params": {
+                  "ticket_id": ""
+                },
+                "version": "1.0.0",
+                "connector": "ctm360-cyberblindspot",
+                "operation": "request_takedown",
+                "operationTitle": "Request Takedown"
+              },
+              "left": "188",
+              "top": "120",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671"
+            }
+          ],
+          "triggerLimit": null,
+          "description": "Request takedown on a detected incident in CTM360 Blindspot based on the ticket ID that you have specified.",
+          "name": "Request Takedown",
+          "tag": "#CTM360 CyberBlindspot",
+          "recordTags": [
+            "Ctm360",
+            "ctm360-cyberblindspot"
+          ],
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "parameters": [],
+          "synchronous": false,
+          "triggerStep": "/api/3/workflow_steps/d2106952-7e2f-42fb-83d4-0f7fbf084460",
+          "routes": [
+            {
+              "uuid": "9e58bc9e-ae8a-4bb5-978b-a01ac1e7bc67",
+              "@type": "WorkflowRoute",
+              "label": null,
+              "isExecuted": false,
+              "name": "Start-> Request Takedown",
+              "sourceStep": "/api/3/workflow_steps/d2106952-7e2f-42fb-83d4-0f7fbf084460",
+              "targetStep": "/api/3/workflow_steps/d9115e89-d545-4276-8dd4-525fe0c048e2"
+            }
+          ]
+        },
+        {
+          "@type": "Workflow",
+          "uuid": "0aa74f05-d821-4209-98f4-36e9e102588f",
+          "collection": "/api/3/workflow_collections/ebcce43f-b73b-450f-a319-fa857d64f37f",
+          "steps": [
+            {
+              "uuid": "c8de9adf-7adb-439a-8635-bf4d0d35f310",
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "step_variables": {
+                  "input": {
+                    "params": []
+                  }
+                }
+              },
+              "left": "20",
+              "top": "20",
+              "stepType": "/api/3/workflow_step_types/b348f017-9a94-471f-87f8-ce88b6a7ad62"
+            },
+            {
+              "uuid": "0925cabe-afed-4805-a4ab-0d75e7dd389a",
+              "@type": "WorkflowStep",
+              "name": "Add Comment",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "name": "CTM360 CyberBlindspot",
+                "config": "",
+                "params": {
+                  "ticket_id": "",
+                  "comment": ""
+                },
+                "version": "1.0.0",
+                "connector": "ctm360-cyberblindspot",
+                "operation": "add_comment",
+                "operationTitle": "Add Comment"
+              },
+              "left": "188",
+              "top": "120",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671"
+            }
+          ],
+          "triggerLimit": null,
+          "description": "Add a comment to a specific incident in CTM360 Blindspot based on the ticket ID and comment parameters that you have specified.",
+          "name": "Add Comment",
+          "tag": "#CTM360 CyberBlindspot",
+          "recordTags": [
+            "Ctm360",
+            "ctm360-cyberblindspot"
+          ],
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "parameters": [],
+          "synchronous": false,
+          "triggerStep": "/api/3/workflow_steps/c8de9adf-7adb-439a-8635-bf4d0d35f310",
+          "routes": [
+            {
+              "uuid": "f6a7189d-a136-4f9e-8cb8-b7de7ba68782",
+              "@type": "WorkflowRoute",
+              "label": null,
+              "isExecuted": false,
+              "name": "Start-> Add Comment",
+              "sourceStep": "/api/3/workflow_steps/c8de9adf-7adb-439a-8635-bf4d0d35f310",
+              "targetStep": "/api/3/workflow_steps/0925cabe-afed-4805-a4ab-0d75e7dd389a"
+            }
+          ]
+        },
+        {
+          "@type": "Workflow",
+          "uuid": "cccbaab4-5814-4149-be16-c9264b3e2beb",
+          "collection": "/api/3/workflow_collections/ebcce43f-b73b-450f-a319-fa857d64f37f",
+          "steps": [
+            {
+              "uuid": "cf4d737b-47a6-457e-baa3-f7bb37868442",
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "step_variables": {
+                  "input": {
+                    "params": []
+                  }
+                }
+              },
+              "left": "20",
+              "top": "20",
+              "stepType": "/api/3/workflow_step_types/b348f017-9a94-471f-87f8-ce88b6a7ad62"
+            },
+            {
+              "uuid": "f707fa11-a661-4f29-995d-2227cb8e6edb",
+              "@type": "WorkflowStep",
+              "name": "Get Malware Logs",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "name": "CTM360 CyberBlindspot",
+                "config": "",
+                "params": {
+                  "date_from": "",
+                  "date_to": "",
+                  "size": 5000
+                },
+                "version": "1.0.0",
+                "connector": "ctm360-cyberblindspot",
+                "operation": "get_malware_logs",
+                "operationTitle": "Get Malware Logs"
+              },
+              "left": "188",
+              "top": "120",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671"
+            }
+          ],
+          "triggerLimit": null,
+          "description": "Retrieves a list of malware logs from CTM360 Blindspot based on the filter criteria that you have specified.",
+          "name": "Get Malware Logs",
+          "tag": "#CTM360 CyberBlindspot",
+          "recordTags": [
+            "Ctm360",
+            "ctm360-cyberblindspot"
+          ],
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "parameters": [],
+          "synchronous": false,
+          "triggerStep": "/api/3/workflow_steps/cf4d737b-47a6-457e-baa3-f7bb37868442",
+          "routes": [
+            {
+              "uuid": "40e53ab1-6169-4d98-8444-8f1f943324f4",
+              "@type": "WorkflowRoute",
+              "label": null,
+              "isExecuted": false,
+              "name": "Start-> Get Malware Logs",
+              "sourceStep": "/api/3/workflow_steps/cf4d737b-47a6-457e-baa3-f7bb37868442",
+              "targetStep": "/api/3/workflow_steps/f707fa11-a661-4f29-995d-2227cb8e6edb"
+            }
+          ]
+        },
+        {
+          "@type": "Workflow",
+          "uuid": "8e8f3001-38e4-4f8f-bf27-6316ba5cd379",
+          "collection": "/api/3/workflow_collections/ebcce43f-b73b-450f-a319-fa857d64f37f",
+          "steps": [
+            {
+              "uuid": "22434d04-b39a-4cb0-837b-dc74265e0cfb",
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "step_variables": {
+                  "input": {
+                    "params": []
+                  }
+                }
+              },
+              "left": "20",
+              "top": "20",
+              "stepType": "/api/3/workflow_step_types/b348f017-9a94-471f-87f8-ce88b6a7ad62"
+            },
+            {
+              "uuid": "7ff7e988-4c51-4e87-a584-954337ed4efb",
+              "@type": "WorkflowStep",
+              "name": "Get Breached Credentials",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "name": "CTM360 CyberBlindspot",
+                "config": "",
+                "params": {
+                  "date_from": "",
+                  "date_to": "",
+                  "size": 5000
+                },
+                "version": "1.0.0",
+                "connector": "ctm360-cyberblindspot",
+                "operation": "get_breached_credentials",
+                "operationTitle": "Get Breached Credentials"
+              },
+              "left": "188",
+              "top": "120",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671"
+            }
+          ],
+          "triggerLimit": null,
+          "description": "Retrieves a list of breached credentials from CTM360 Blindspot based on the filter criteria that you have specified.",
+          "name": "Get Breached Credentials",
+          "tag": "#CTM360 CyberBlindspot",
+          "recordTags": [
+            "Ctm360",
+            "ctm360-cyberblindspot"
+          ],
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "parameters": [],
+          "synchronous": false,
+          "triggerStep": "/api/3/workflow_steps/22434d04-b39a-4cb0-837b-dc74265e0cfb",
+          "routes": [
+            {
+              "uuid": "045cb610-934e-4d51-bfa8-d7224a75a950",
+              "@type": "WorkflowRoute",
+              "label": null,
+              "isExecuted": false,
+              "name": "Start-> Get Breached Credentials",
+              "sourceStep": "/api/3/workflow_steps/22434d04-b39a-4cb0-837b-dc74265e0cfb",
+              "targetStep": "/api/3/workflow_steps/7ff7e988-4c51-4e87-a584-954337ed4efb"
+            }
+          ]
+        },
+        {
+          "@type": "Workflow",
+          "uuid": "1d9a1ae1-e3ef-4df8-b4f3-f321807cc304",
+          "collection": "/api/3/workflow_collections/ebcce43f-b73b-450f-a319-fa857d64f37f",
+          "steps": [
+            {
+              "uuid": "3324db7f-9320-45c9-bc17-f6a5b744fad9",
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "step_variables": {
+                  "input": {
+                    "params": []
+                  }
+                }
+              },
+              "left": "20",
+              "top": "20",
+              "stepType": "/api/3/workflow_step_types/b348f017-9a94-471f-87f8-ce88b6a7ad62"
+            },
+            {
+              "uuid": "7996a961-8baf-4555-a890-9038fe653eda",
+              "@type": "WorkflowStep",
+              "name": "Get Card Leaks",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "name": "CTM360 CyberBlindspot",
+                "config": "",
+                "params": {
+                  "date_from": "",
+                  "date_to": "",
+                  "size": 5000
+                },
+                "version": "1.0.0",
+                "connector": "ctm360-cyberblindspot",
+                "operation": "get_card_leaks",
+                "operationTitle": "Get Card Leaks"
+              },
+              "left": "188",
+              "top": "120",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671"
+            }
+          ],
+          "triggerLimit": null,
+          "description": "Retrieves a list of card leaks from CTM360 Blindspot based on the filter criteria that you have specified.",
+          "name": "Get Card Leaks",
+          "tag": "#CTM360 CyberBlindspot",
+          "recordTags": [
+            "Ctm360",
+            "ctm360-cyberblindspot"
+          ],
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "parameters": [],
+          "synchronous": false,
+          "triggerStep": "/api/3/workflow_steps/3324db7f-9320-45c9-bc17-f6a5b744fad9",
+          "routes": [
+            {
+              "uuid": "a0f44c2a-fae9-4a5d-9ff6-a22b8cbd17a9",
+              "@type": "WorkflowRoute",
+              "label": null,
+              "isExecuted": false,
+              "name": "Start-> Get Card Leaks",
+              "sourceStep": "/api/3/workflow_steps/3324db7f-9320-45c9-bc17-f6a5b744fad9",
+              "targetStep": "/api/3/workflow_steps/7996a961-8baf-4555-a890-9038fe653eda"
+            }
+          ]
+        },
+        {
+          "@type": "Workflow",
+          "uuid": "07b70bdc-e80d-468e-9ce2-1f7fd95f8467",
+          "collection": "/api/3/workflow_collections/ebcce43f-b73b-450f-a319-fa857d64f37f",
+          "steps": [
+            {
+              "uuid": "fd3588a1-34d0-43ba-9817-6cecc8d044b4",
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "step_variables": {
+                  "input": {
+                    "params": []
+                  }
+                }
+              },
+              "left": "20",
+              "top": "20",
+              "stepType": "/api/3/workflow_step_types/b348f017-9a94-471f-87f8-ce88b6a7ad62"
+            },
+            {
+              "uuid": "9548194a-dcbf-471f-9ae1-3380654cbbca",
+              "@type": "WorkflowStep",
+              "name": "Get Domain Protection",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "name": "CTM360 CyberBlindspot",
+                "config": "",
+                "params": {
+                  "date_from": "",
+                  "date_to": "",
+                  "type": "",
+                  "risk_score_min": "",
+                  "risk_score_max": "",
+                  "finding_status": "",
+                  "size": 5000
+                },
+                "version": "1.0.0",
+                "connector": "ctm360-cyberblindspot",
+                "operation": "get_domain_protection",
+                "operationTitle": "Get Domain Protection"
+              },
+              "left": "188",
+              "top": "120",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671"
+            }
+          ],
+          "triggerLimit": null,
+          "description": "Retrieves a list of domain protection from CTM360 Blindspot based on the filter criteria that you have specified.",
+          "name": "Get Domain Protection",
+          "tag": "#CTM360 CyberBlindspot",
+          "recordTags": [
+            "Ctm360",
+            "ctm360-cyberblindspot"
+          ],
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "parameters": [],
+          "synchronous": false,
+          "triggerStep": "/api/3/workflow_steps/fd3588a1-34d0-43ba-9817-6cecc8d044b4",
+          "routes": [
+            {
+              "uuid": "45d5b95b-3cbe-4f8b-941b-7e5cae969215",
+              "@type": "WorkflowRoute",
+              "label": null,
+              "isExecuted": false,
+              "name": "Start-> Get Domain Protection",
+              "sourceStep": "/api/3/workflow_steps/fd3588a1-34d0-43ba-9817-6cecc8d044b4",
+              "targetStep": "/api/3/workflow_steps/9548194a-dcbf-471f-9ae1-3380654cbbca"
+            }
+          ]
+        }
+      ],
+      "name": "Sample - CTM360 CyberBlindspot - 1.0.0",
+      "description": "CyberBlindspot is CTM360's Digital Risk Protection platform which combines surface, deep, and dark web monitoring, including brand protection, anti-phishing, and takedowns. This connector allows you to ingest the details from the platform and take response actions.",
+      "visible": true,
+      "recordTags": [
+        "Ctm360",
+        "ctm360-cyberblindspot"
+      ]
+    }
+  ]
+}

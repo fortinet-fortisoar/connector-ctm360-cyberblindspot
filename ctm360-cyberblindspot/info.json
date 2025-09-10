@@ -1,0 +1,391 @@
+{
+  "name": "ctm360-cyberblindspot",
+  "version": "1.0.0",
+  "label": "CTM360 CyberBlindspot",
+  "description": "CyberBlindspot is CTM360's Digital Risk Protection platform which combines surface, deep, and dark web monitoring, including brand protection, anti-phishing, and takedowns. This connector allows you to ingest the details from the platform and take response actions.",
+  "publisher": "Fortinet",
+  "icon_small_name": "small.png",
+  "icon_large_name": "large.png",
+  "category": "Threat Intelligence",
+  "contributor": "Reem Moustafa",
+  "cs_approved": false,
+  "cs_compatible": true,
+  "help_online": "https://github.com/fortinet-fortisoar/connector-ctm360-cyberblindspot/blob/release/1.0.0/docs/readme.md",
+  "configuration": {
+    "fields": [
+      {
+        "title": "Server URL",
+        "description": "Specify the Server URL to which you want to connect and perform automated information.",
+        "type": "text",
+        "name": "server",
+        "required": true,
+        "visible": true,
+        "editable": true,
+        "value": "https://cbs.ctm360.com",
+        "tooltip": "Specify the Server URL to which you want to connect and perform automated information."
+      },
+      {
+        "title": "API Key",
+        "description": "Specify the API Key to connect to the endpoint and perform automated operations.",
+        "type": "password",
+        "name": "api_key",
+        "required": true,
+        "visible": true,
+        "editable": true,
+        "tooltip": "Specify the API Key to connect to the endpoint and perform automated operations."
+      },
+      {
+        "title": "Verify SSL",
+        "description": "Specifies whether the SSL certificate for the server is to be verified. By default, this option is selected, i.e., set to true.",
+        "type": "checkbox",
+        "name": "verify_ssl",
+        "required": false,
+        "visible": true,
+        "editable": true,
+        "value": true,
+        "tooltip": "Specifies whether the SSL certificate for the server is to be verified. By default, this option is selected, i.e., set to true."
+      }
+    ]
+  },
+  "operations": [
+    {
+      "title": "Get Incidents",
+      "operation": "get_incidents",
+      "annotation": "get_incidents",
+      "description": "Retrieves a list of incidents from CTM360 Blindspot based on the filter criteria that you have specified.",
+      "parameters": [
+        {
+          "title": "Date Field",
+          "description": "(Optional) Select the data field to retrieve incidents from CTM360 Blindspot. You can choose either Created Date or Updated Date. By default, the field is set to \"Created Date\".",
+          "type": "select",
+          "name": "date_field",
+          "required": false,
+          "visible": true,
+          "editable": true,
+          "value": "Created Date",
+          "tooltip": "(Optional) Select the data field to retrieve incidents from CTM360 Blindspot. You can choose either Created Date or Updated Date. By default, the field is set to \"Created Date\".",
+          "options": [
+            "Created Date",
+            "Updated Date"
+          ]
+        },
+        {
+          "title": "Date From",
+          "description": "(Optional) Specify the date and time to retrieve results that include only those items that were created/updated after the specified timestamp.",
+          "type": "text",
+          "name": "date_from",
+          "required": false,
+          "visible": true,
+          "editable": true,
+          "tooltip": "(Optional) Specify the date and time to retrieve results that include only those items that were created/updated after the specified timestamp. The date must be in the format DD-MM-YYYY hh:mm, for example: \"01-01-2025 00:00\".",
+          "placeholder": "The date must be in the format DD-MM-YYYY hh:mm, for example: \"01-01-2025 00:00\"."
+        },
+        {
+          "title": "Date To",
+          "description": "(Optional) Specify the date and time to retrieve results that include only those items that were created/updated before the specified timestamp.",
+          "type": "text",
+          "name": "date_to",
+          "required": false,
+          "visible": true,
+          "editable": true,
+          "tooltip": "(Optional) Specify the date and time to retrieve results that include only those items that were created/updated before the specified timestamp. The date must be in the format DD-MM-YYYY hh:mm, for example: \"01-01-2025 00:00\".",
+          "placeholder": "The date must be in the format DD-MM-YYYY hh:mm, for example: \"01-01-2025 00:00\"."
+        }
+      ],
+      "output_schema": {}
+    },
+    {
+      "title": "Close Incident",
+      "operation": "close_incident",
+      "annotation": "close_incident",
+      "description": "Close a specific incident based on the ticket ID that you have specified.",
+      "parameters": [
+        {
+          "title": "Ticket ID",
+          "description": "Specify the ticket ID of the incident you want to close.",
+          "type": "text",
+          "name": "ticket_id",
+          "required": true,
+          "visible": true,
+          "editable": true,
+          "tooltip": "Specify the ticket ID of the incident you want to close."
+        }
+      ],
+      "output_schema": {}
+    },
+    {
+      "title": "Request Takedown",
+      "operation": "request_takedown",
+      "annotation": "request_takedown",
+      "description": "Request takedown on a detected incident in CTM360 Blindspot based on the ticket ID that you have specified.",
+      "category": "investigation",
+      "visible": true,
+      "enabled": true,
+      "parameters": [
+        {
+          "title": "Ticket ID",
+          "description": "Specify the ticket ID of the incident you want to take down.",
+          "type": "text",
+          "name": "ticket_id",
+          "required": true,
+          "visible": true,
+          "editable": true,
+          "tooltip": "Specify the ticket ID of the incident you want to take down."
+        }
+      ],
+      "output_schema": {}
+    },
+    {
+      "title": "Add Comment",
+      "operation": "add_comment",
+      "annotation": "add_comment",
+      "description": "Add a comment to a specific incident in CTM360 Blindspot based on the ticket ID and comment parameters that you have specified.",
+      "category": "investigation",
+      "visible": true,
+      "enabled": true,
+      "parameters": [
+        {
+          "title": "Ticket Id",
+          "description": "Specify the ticket ID of the incident to which you want to add a comment.",
+          "type": "text",
+          "name": "ticket_id",
+          "required": true,
+          "visible": true,
+          "editable": true,
+          "tooltip": "Specify the ticket ID of the incident to which you want to add a comment."
+        },
+        {
+          "title": "Comment",
+          "description": "Specify the comment you want to add to the incident. Note: Special characters are not allowed.",
+          "type": "text",
+          "name": "comment",
+          "required": true,
+          "visible": true,
+          "editable": true,
+          "tooltip": "Specify the comment you want to add to the incident. Note: Special characters are not allowed."
+        }
+      ],
+      "output_schema": {}
+    },
+    {
+      "title": "Get Malware Logs",
+      "operation": "get_malware_logs",
+      "annotation": "get_malware_logs",
+      "description": "Retrieves a list of malware logs from CTM360 Blindspot based on the filter criteria that you have specified.",
+      "category": "investigation",
+      "visible": true,
+      "enabled": true,
+      "parameters": [
+        {
+          "title": "Date From",
+          "description": "Specify the date and time to retrieve results that include only those items that were created after the specified timestamp.",
+          "type": "text",
+          "name": "date_from",
+          "required": true,
+          "visible": true,
+          "editable": true,
+          "tooltip": "Specify the date and time to retrieve results that include only those items that were created after the specified timestamp. The date must be in the format DD-MM-YYYY hh:mm, for example: \"01-01-2025 00:00\".",
+          "placeholder": "The date must be in the format DD-MM-YYYY hh:mm, for example: \"01-01-2025 00:00\"."
+        },
+        {
+          "title": "Date To",
+          "description": "Specify the date and time to retrieve results that include only those items that were created before the specified timestamp.",
+          "type": "text",
+          "name": "date_to",
+          "required": true,
+          "visible": true,
+          "editable": true,
+          "tooltip": "Specify the date and time to retrieve results that include only those items that were created before the specified timestamp. The date must be in the format DD-MM-YYYY hh:mm, for example: \"01-01-2025 00:00\".",
+          "placeholder": "The date must be in the format DD-MM-YYYY hh:mm, for example: \"01-01-2025 00:00\"."
+        },
+        {
+          "title": "Page Size",
+          "description": "(Optional) Specify the maximum number of results this operation should return, per page, in the response. By default, it will be fetch 5000 records and maximum 10000 records.",
+          "type": "integer",
+          "name": "size",
+          "required": false,
+          "visible": true,
+          "editable": true,
+          "value": 5000,
+          "tooltip": "(Optional) Specify the maximum number of results this operation should return, per page, in the response. By default, it will be fetch 5000 records and maximum 10000 records."
+        }
+      ],
+      "output_schema": {}
+    },
+    {
+      "title": "Get Breached Credentials",
+      "operation": "get_breached_credentials",
+      "annotation": "get_breached_credentials",
+      "description": "Retrieves a list of breached credentials from CTM360 Blindspot based on the filter criteria that you have specified.",
+      "category": "investigation",
+      "visible": true,
+      "enabled": true,
+      "parameters": [
+        {
+          "title": "Date From",
+          "description": "Specify the date and time to retrieve results that include only those items that were created after the specified timestamp.",
+          "type": "text",
+          "name": "date_from",
+          "required": true,
+          "visible": true,
+          "editable": true,
+          "tooltip": "Specify the date and time to retrieve results that include only those items that were created after the specified timestamp. The date must be in the format DD-MM-YYYY hh:mm, for example: \"01-01-2025 00:00\".",
+          "placeholder": "The date must be in the format DD-MM-YYYY hh:mm, for example: \"01-01-2025 00:00\"."
+        },
+        {
+          "title": "Date To",
+          "description": "Specify the date and time to retrieve results that include only those items that were created before the specified timestamp.",
+          "type": "text",
+          "name": "date_to",
+          "required": true,
+          "visible": true,
+          "editable": true,
+          "tooltip": "Specify the date and time to retrieve results that include only those items that were created before the specified timestamp. The date must be in the format DD-MM-YYYY hh:mm, for example: \"01-01-2025 00:00\".",
+          "placeholder": "The date must be in the format DD-MM-YYYY hh:mm, for example: \"01-01-2025 00:00\"."
+        },
+        {
+          "title": "Page Size",
+          "description": "(Optional) Specify the maximum number of results this operation should return, per page, in the response. By default, it will be fetch 5000 records and maximum 10000 records.",
+          "type": "integer",
+          "name": "size",
+          "required": false,
+          "visible": true,
+          "editable": true,
+          "value": 5000,
+          "tooltip": "(Optional) Specify the maximum number of results this operation should return, per page, in the response. By default, it will be fetch 5000 records and maximum 10000 records."
+        }
+      ],
+      "output_schema": {}
+    },
+    {
+      "title": "Get Card Leaks",
+      "operation": "get_card_leaks",
+      "annotation": "get_card_leaks",
+      "description": "Retrieves a list of card leaks from CTM360 Blindspot based on the filter criteria that you have specified.",
+      "category": "investigation",
+      "visible": true,
+      "enabled": true,
+      "parameters": [
+        {
+          "title": "Date From",
+          "description": "Specify the date and time to retrieve results that include only those items that were created after the specified timestamp.",
+          "type": "text",
+          "name": "date_from",
+          "required": true,
+          "visible": true,
+          "editable": true,
+          "tooltip": "Specify the date and time to retrieve results that include only those items that were created after the specified timestamp. The date must be in the format DD-MM-YYYY hh:mm, for example: \"01-01-2025 00:00\".",
+          "placeholder": "The date must be in the format DD-MM-YYYY hh:mm, for example: \"01-01-2025 00:00\"."
+        },
+        {
+          "title": "Date To",
+          "description": "Specify the date and time to retrieve results that include only those items that were created before the specified timestamp.",
+          "type": "text",
+          "name": "date_to",
+          "required": true,
+          "visible": true,
+          "editable": true,
+          "tooltip": "Specify the date and time to retrieve results that include only those items that were created before the specified timestamp. The date must be in the format DD-MM-YYYY hh:mm, for example: \"01-01-2025 00:00\".",
+          "placeholder": "The date must be in the format DD-MM-YYYY hh:mm, for example: \"01-01-2025 00:00\"."
+        },
+        {
+          "title": "Page Size",
+          "description": "(Optional) Specify the maximum number of results this operation should return, per page, in the response. By default, it will be fetch 5000 records and maximum 10000 records.",
+          "type": "integer",
+          "name": "size",
+          "required": false,
+          "visible": true,
+          "editable": true,
+          "value": 5000,
+          "tooltip": "(Optional) Specify the maximum number of results this operation should return, per page, in the response. By default, it will be fetch 5000 records and maximum 10000 records."
+        }
+      ],
+      "output_schema": {}
+    },
+    {
+      "title": "Get Domain Protection",
+      "operation": "get_domain_protection",
+      "annotation": "get_domain_protection",
+      "description": "Retrieves a list of domain protection from CTM360 Blindspot based on the filter criteria that you have specified.",
+      "category": "investigation",
+      "visible": true,
+      "enabled": true,
+      "parameters": [
+        {
+          "title": "Date From",
+          "description": "Specify the date and time to retrieve results that include only those items that were created after the specified timestamp.",
+          "type": "text",
+          "name": "date_from",
+          "required": true,
+          "visible": true,
+          "editable": true,
+          "tooltip": "Specify the date and time to retrieve results that include only those items that were created after the specified timestamp. The date must be in the format DD-MM-YYYY hh:mm, for example: \"01-01-2025 00:00\".",
+          "placeholder": "The date must be in the format DD-MM-YYYY hh:mm, for example: \"01-01-2025 00:00\"."
+        },
+        {
+          "title": "Date To",
+          "description": "Specify the date and time to retrieve results that include only those items that were created before the specified timestamp.",
+          "type": "text",
+          "name": "date_to",
+          "required": true,
+          "visible": true,
+          "editable": true,
+          "tooltip": "Specify the date and time to retrieve results that include only those items that were created before the specified timestamp. The date must be in the format DD-MM-YYYY hh:mm, for example: \"01-01-2025 00:00\".",
+          "placeholder": "The date must be in the format DD-MM-YYYY hh:mm, for example: \"01-01-2025 00:00\"."
+        },
+        {
+          "title": "Incident Type",
+          "description": "Specify the incident type to filter the records.",
+          "type": "text",
+          "name": "type",
+          "required": true,
+          "visible": true,
+          "editable": true,
+          "tooltip": "Specify the incident type to filter the records."
+        },
+        {
+          "title": "Risk Score Min",
+          "description": "(Optional) Specify the minium risk score to be used for filtering domain protection.",
+          "type": "integer",
+          "name": "risk_score_min",
+          "required": false,
+          "visible": true,
+          "editable": true,
+          "tooltip": "(Optional) Specify the minium risk score to be used for filtering domain protection. The minimum possible risk score falls within the range of 0 to 100."
+        },
+        {
+          "title": "Risk Score Max",
+          "description": "(Optional) Specify the maximum risk score to be used for filtering domain protection.",
+          "type": "integer",
+          "name": "risk_score_max",
+          "required": false,
+          "visible": true,
+          "editable": true,
+          "tooltip": "(Optional) Specify the maximum risk score to be used for filtering domain protection. The maximum possible risk score falls within the range of 0 to 100."
+        },
+        {
+          "title": "Finding Status",
+          "description": "(Optional) Specify the finding status to filter the records.",
+          "type": "text",
+          "name": "finding_status",
+          "required": false,
+          "visible": true,
+          "editable": true,
+          "tooltip": "(Optional) Specify the finding status to filter the records."
+        },
+        {
+          "title": "Page Size",
+          "description": "(Optional) Specify the maximum number of results this operation should return, per page, in the response. By default, it will be fetch 5000 records and maximum 10000 records.",
+          "type": "integer",
+          "name": "size",
+          "required": false,
+          "visible": true,
+          "editable": true,
+          "value": 5000,
+          "tooltip": "(Optional) Specify the maximum number of results this operation should return, per page, in the response. By default, it will be fetch 5000 records and maximum 10000 records."
+        }
+      ],
+      "output_schema": {}
+    }
+  ]
+}
